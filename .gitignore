@@ -7,3 +7,7 @@ db.sqlite3
 __pycache__/
 *.pyc
 .idea/
+
+media/
+static/images/eco.jpg
+static/images/b2.jpg
