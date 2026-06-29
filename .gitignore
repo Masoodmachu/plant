@@ -1,0 +1,9 @@
+static/video/plantingvideo.mp4 
+plant_app/AlexNetModel.hdf5 
+
+*.hdf5
+*.mp4
+db.sqlite3
+__pycache__/
+*.pyc
+.idea/

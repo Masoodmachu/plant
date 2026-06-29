@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="bg-primary">
+    <div class="container py-4">
+      <!-- Breadcrumb -->
+      <nav class="d-flex">
+        <h6 class="mb-0">
+          <a href="{% url 'plant:home' %}" class="text-white-50">Home</a>
+          <span class="text-white-50 mx-2"> > </span>
+          <a href="{% url 'cart:viewcart' %}" class="text-white-50">2. Product</a>
+          <span class="text-white-50 mx-2"> > </span>
+          <a href="" class="text-white-50 ">3. Order info</a>
+          <span class="text-white-50 mx-2"> > </span>
+          <a href="" class="text-white"><u>4. Payment</u></a>
+        </h6>
+      </nav>
+      <!-- Breadcrumb -->
+    </div>
+  </div>
+
+<center>
+    <h4 class="text-light mt-4 text-decoration-underline">Payment</h4>
+
+
+</center>
+    <div class="container mt-5  bg-white " style="height:500px;width:600px;border-radius:10px;" >
+
+<div class="container p-5">
+    <p class="text-danger text-center mt-5" ><b>Click below button to pay !!!</b></p>
+<!--<form method="POST" enctype="multipart/form-data" >-->
+<!--    {% csrf_token %}-->
+<!--&lt;!&ndash;    <h2>Payment Form</h2>&ndash;&gt;-->
+
+<!--        {{forms|crispy}}-->
+<!--<center>-->
+<!--    <input type="submit" class="btn btn-warning" value="Proceed Payment" style="margin-top:50px;">-->
+<!--    </center>-->
+<!--</form>-->
+        </br>
+        {% if payment %}
+
+        <form method="POST" action="{% url 'cart:success' %}"  style="margin-top:50px;margin-left:100px;">
+<script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key='rzp_test_63LXyFiiPBDdj6'
+    data-amount="{{payment.amount}}"
+    data-currency="{{payment.currency}}"
+    data-buttontext="Pay with Razorpay"
+    data-name="Plant Shop"
+    data-description="Travel management system application"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="{{payment.name}}"
+    data-prefill.email="gaurav.kumar@example.com"
+    data-theme.color="#90ee90"
+></script>
+<input type="hidden" custom="Hidden Element" name="hidden"/>
+</form>
+        {% endif %}
+</div>
+</div>
+{% endblock %}
+

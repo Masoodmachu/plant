@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container bg-white mt-5 pb-5">
+    <div class="row">
+      {% for i in f %}
+          <div class="col-md-5 mr-auto">
+            <div class="border text-center mt-5">
+              <img src="{{i.image1.url}}" alt="Image" class="img-fluid p-5">
+            </div>
+          </div>
+          <div class="col-md-6 mt-5">
+            <h2 class="text-black">{{i.name}}</h2>
+            <p>{{i.desc}}</p>
+
+
+            <p><del>${{i.price}}</del>  <strong class="text-primary h4">${{i.offer_price}}</strong></p>
+
+           <p> <strong class="text-secondary h5">Stock: {{i.stock}}</strong></p>
+
+              <p>Category:{{i.category.name}}</p>
+
+
+
+            <div class="mb-5">
+<!--              <div class="input-group mb-3" style="max-width: 220px;">-->
+<!--                <div class="input-group-prepend">-->
+<!--                  <button class="btn btn-outline-primary js-btn-minus" type="button">−</button>-->
+<!--                </div>-->
+<!--                <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">-->
+<!--                <div class="input-group-append">-->
+<!--                 <a href="{% url 'cart:addtocart' i.id %}"> <button class="btn btn-outline-primary js-btn-plus" type="button">+</button></a>-->
+<!--                </div>-->
+<!--              </div>-->
+
+            </div>
+            <p><a href="{% url 'cart:addtocart'  i.id %}" class="buy-now btn  height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+
+            <div class="mt-5">
+              <ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                  <h5 class="  btn btn-sm btn-outline-warning" id="pills-home-tab" data-toggle="pill"  role="tab" aria-controls="pills-home" aria-selected="true">Specifications</h5>
+                </li>
+<!--                <li class="nav-item">-->
+<!--                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Specifications</a>-->
+<!--                </li>-->
+
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <ul type="1">
+                    <li>{{i.specification}}</li>
+                  </ul>
+                </div>
+<!--                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">-->
+
+<!--                  <table class="table custom-table">-->
+
+<!--                    <tbody>-->
+<!--                      <tr>-->
+<!--                        <td>HPIS CODE</td>-->
+<!--                        <td class="bg-light">999_200_40_0</td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <td>HEALTHCARE PROVIDERS ONLY</td>-->
+<!--                        <td class="bg-light">No</td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <td>LATEX FREE</td>-->
+<!--                        <td class="bg-light">Yes, No</td>-->
+<!--                      </tr>-->
+<!--                      <tr>-->
+<!--                        <td>MEDICATION ROUTE</td>-->
+<!--                        <td class="bg-light">Topical</td>-->
+<!--                      </tr>-->
+<!--                    </tbody>-->
+<!--                  </table>-->
+
+<!--                </div>-->
+
+              </div>
+            </div>
+
+
+          </div>
+      {% endfor %}
+        </div>
+
+</div>
+
+
+
+<section class="about-us-area section-padding-100-0 text-white " style="margin-top:150px;">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>ABOUT US</h2>
+                        <p>We are leading in the plants service fields.</p>
+                    </div>
+                    <p>Quisque orci quam, vulputate non commodo finibus, molestie ac ante. Duis in sceleri quesem. Nulla sit amet varius nunc. Maecenas dui, tempeu ullam corper in.</p>
+
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Office plants</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap" style="display: inline;">
+                                    <span class="tip" style="left: 323px; transition: left 1s ease-in-out 0s;">80%</span>
+                                </div>
+                                <span class="fill" data-percentage="80" style="background-color:rgb(112, 199, 69); width: 356px; transition: width 1s ease-in-out 0s;"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Field manager</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap" style="display: inline;">
+                                    <span class="tip" style="left: 279.5px; transition: left 1s ease-in-out 0s;">70%</span>
+                                </div>
+                                <span class="fill" data-percentage="70" style="background-color:red;width: 311.5px; transition: width 1s ease-in-out 0s;"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Landscape design</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap" style="display: inline;">
+                                    <span class="tip" style="left: 346.25px; transition: left 1s ease-in-out 0s;">85%</span>
+                                </div>
+                                <span class="fill" data-percentage="85" style="background: rgb(112, 199, 69); width: 378.25px; transition: width 1s ease-in-out 0s;"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>Garden Care</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap" style="display: inline;">
+                                    <span class="tip" style="left: 257.25px; transition: left 1s ease-in-out 0s;">65%</span>
+                                </div>
+                                <span class="fill" data-percentage="65" style="background: rgb(112, 199, 69); width: 289.25px; transition: width 1s ease-in-out 0s;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="alazea-benefits-area">
+                        <div class="row">
+                            <!-- Single Benefits Area -->
+                            <div class="col-12 col-sm-6">
+                                <div class="single-benefits-area">
+                                    <img src="{% static 'images/b1.png' %}" alt="">
+                                    <h5>Quality Products</h5>
+                                    <p>Intiam eu sagittis est, at commodo lacini libero. Praesent dignissim sed odio vel aliquam manta lagorn.</p>
+                                </div>
+                            </div>
+
+                            <!-- Single Benefits Area -->
+                            <div class="col-12 col-sm-6">
+                                <div class="single-benefits-area">
+                                    <img src="{% static 'images/b2.png' %}" alt="">
+                                    <h5>Perfect Service</h5>
+                                    <p>Intiam eu sagittis est, at commodo lacini libero. Praesent dignissim sed odio vel aliquam manta lagorn.</p>
+                                </div>
+                            </div>
+
+                            <!-- Single Benefits Area -->
+                            <div class="col-12 col-sm-6">
+                                <div class="single-benefits-area">
+                                    <img src="{% static 'images/b3.png' %}" alt="">
+                                    <h5>100% Natural</h5>
+                                    <p>Intiam eu sagittis est, at commodo lacini libero. Praesent dignissim sed odio vel aliquam manta lagorn.</p>
+                                </div>
+                            </div>
+
+                            <!-- Single Benefits Area -->
+                            <div class="col-12 col-sm-6">
+                                <div class="single-benefits-area" style="position:relative;z-index:1;margin-bottom:30px;">
+                                    <img src="{% static 'images/b4.png' %}" alt="">
+                                    <h5>Environmentally friendly</h5>
+                                    <p>Intiam eu sagittis est, at commodo lacini libero. Praesent dignissim sed odio vel aliquam manta lagorn.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'plant_app/style.css' %}">
+<link rel="stylesheet" href="{% static 'plant_app/bootstrap.min.css' %}">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Plant Diseases</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  </head>
+  <body class="bg-dark">
+    <div id='name' class='container'>
+      <header>
+          <h1  class="text-light mt-100 text-decoration-underline "><strong>Plant Diseases</h1>
+            <h1 class="text-light mt-100 text-decoration-underline mb-5"><strong>Recognition</h1>
+
+      </header>
+        <p></p>
+    <form method="post" id="fileform" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="file-upload">
+      <div class="file-select">
+          <div class="file-select-button" id="fileName">Choose File</div>
+        <div class="file-select-name" id="noFile">No file chosen...</div>
+        <input id="chooseFile" type="file" name="myfile">
+      </div>
+    </div>
+    <button id="sub" class="btn btn-success btn-lg" type="submit">Predict</button>
+  </form>
+
+
+  {% if file_url %}
+  <h1 id='filename' ><strong>{{ result }}</h1>
+  <img src="data:image/png;base64,{{file_url}}" style="width:224px;height:224px;">
+  {% endif %}
+
+    </div>
+  </body>
+  <script type="text/javascript" src="{% static 'plant_app/jQuery.js' %}"></script>
+  <script type="text/javascript" src="{% static 'plant_app/effect.js' %}"></script>
+</html>

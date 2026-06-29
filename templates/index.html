@@ -1,0 +1,13 @@
+{% if result %}
+    <h2>Detected Disease</h2>
+
+    <h3 style="color: green;">
+        {{ result }}
+    </h3>
+
+    <p><strong>Confidence:</strong> {{ confidence }}%</p>
+
+    {% if warning %}
+        <p style="color:red;">{{ warning }}</p>
+    {% endif %}
+{% endif %}

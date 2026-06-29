@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Orders
+{% endblock %}
+
+{% block content %}
+
+<div class="container " style="margin-top:100px;">
+    <h4 class="text-light" style="margin-top:100px;display:inline;">ORDERS:</h4>
+
+    <h5 class="text-primary btn btn-warning rounded" style="margin-left:500px;" >{{u}}</h5>
+
+    <hr>
+<!--    <div class="container">-->
+<!--         <form class="d-flex" action="" method="POST">-->
+<!--          {% csrf_token %}-->
+<!--        <input class="form-control form-control-dark text-bg-dark text-info"  name="q" type="search" placeholder="Search Plants or fertilizers" aria-label="Search" style="">-->
+<!--        <button class="btn btn-outline-success ms-2" type="submit" >Search</button>-->
+<!--      </form>-->
+<!--    </div>-->
+</div>
+<!--    <div class="container-fluid mt-5 p-3">-->
+<!--        <table class="table table-bordered table-hovered">-->
+<!--            <tr class="text-center">-->
+<!--                <th>Product Name:</th>-->
+<!--                <th>Image:</th>-->
+<!--                <th>Price:</th>-->
+<!--                <th>Items Count:</th>-->
+<!--                <th>Ordered Date:</th>-->
+<!--                <th><i>Order Status:</i></th>-->
+<!--            </tr>-->
+<!--            {% for i in o %}-->
+<!--            <tr>-->
+<!--                <td style="color:red;height:20px" class="bg-dark p-2 text-center pt-5"><h5>{{i.product.name}}</h5></td>-->
+<!--                <td style="width:300px;" class="bg-dark"><img src="{{i.product.image1.url}}" height="250px" width="300px"></td>-->
+<!--                <td class="bg-dark p-2 text-center text-light pt-5" >{{i.product.price}}</td>-->
+<!--                <td class="bg-dark p-2 text-center text-light pt-5">{{i.item_count}}</td>-->
+<!--                <td class="bg-dark p-2 text-center text-light pt-5">{{i.ordered_date}}</td>-->
+<!--                <td class="bg-dark p-2 text-center text-light pt-5"><h5 style="margin-top:60px;"><i>{{i.delivery_status}}</i></h5></td>-->
+
+
+<!--            </tr>-->
+<!--            {% endfor %}-->
+<!--        </table>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="container-fluid">
+    <div class="container">
+        {% for i in o %}
+        <div class="row border border-2 border-white mb-5 mt-5 bg-secondary">
+        <div class="col-sm-5 mt-5 mb-5">
+            <img src="{{i.product.image1.url}}" height="250px" width="250px">
+        </div>
+        <div class="col-sm-6 mt-5">
+            <h4 class=" fst-italic text-primary">Product Name: {{i.product.name}}</h4>
+            <h5  class="text-warning fs-italic ms-3">Product Price: {{i.product.price}}</h5>
+            <h5 class="text-light fs-italic ms-3 fst-italic">Address: {{i.address}}</h5>
+            <h5 class="text-light  ms-3">Phone: {{i.phone}}</h5>
+            <h5 class="text-light  ms-3">Items Count: {{i.item_count}}</h5>
+            <h5 class="text-light  ms-3">Ordered On: {{i.ordered_date}}</h5>
+            <h5 class="text-light  ms-3">Delivery Status: {{i.delivery_status}}</h5>
+        </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

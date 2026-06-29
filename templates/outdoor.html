@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Products
+{% endblock %}
+
+
+{% block content %}
+
+<center>
+    <h4 class="text-light mt-100 text-decoration-underline">Outdoor Plants</h4>
+
+</center>
+<!--{%  for i in p %}-->
+<!--<div class="container">-->
+<!--    <div class="card" style="width: 21rem;">-->
+<!--  <img src="{{i.image.url}}" class="card-img-top" alt="..." height="494px" width="418px">-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">{{i.title}}</h5>-->
+<!--    <p class="card-text">{{i.desc}}</p>-->
+<!--    <a href="#" class="btn btn-primary">Go somewhere</a>-->
+<!--  </div>-->
+<!--</div>-->
+<!--    {% endfor %}-->
+<!--</div>-->
+
+
+<div class="container mt-100" style="margin-top:150px;position:relative">
+
+    <div class="row">
+        {% for i in p %}
+           <div class="col-md-4 col-sm-6">
+            <div class="card mb-30 bg-dark"><a class="card-img-tiles" href="{% url 'plant:detail' i.id %}">
+                <div class="inner">
+                  <div class="main-img"><img class="" src="{{i.image1.url}}" alt="Category" width="239.9" height="159.41"></div>
+                  <div class="thumblist"><img src="{{i.image2.url}}" alt="Category" height="75.94" width="113.91" ><img class="" src="{{i.image3.url}}" alt="Category" width="113.91" height="170.86"></div>
+                </div></a>
+              <div class="card-body text-center">
+                <h4 class="card-title text-white">{{i.name}}</h4>
+                  <span class="text-light">Stock: {{i.stock}}</span>
+                <p class="text-white">Price: ${{i.offer_price}}</p>
+                  {% if user.is_superuser == True %}
+                      {% if i.stock > 0 %}
+                          <h4 style="color:green;">Product In Stock</h4>
+                          <a href="{% url 'admin:index' %}" class="btn btn-primary">Add Stock</a>
+                      {% else %}
+                          <h4 style="color:red;">Product Out of stock</h4>
+                          <a href="{% url 'admin:index' %}" class="btn btn-primary">Add Stock</a>
+                      {% endif %}
+                  {% else %}
+                  {% if i.stock > 0 %}
+                       <a class="btn btn-outline-primary text-start" href="{% url 'cart:addtocart'  i.id %}" data-abc="true">ADD CART</a>
+                       {% else %}
+                        <h4 style="color:red;">Out Of Stock</h4>
+                          {% endif %}
+                  {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

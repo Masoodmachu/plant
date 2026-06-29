@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+LOGIN
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+<form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label text-light">User Name:</label>
+        <input type="text" class="form-control" id="name" name="username">
+    <!--    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+      </div>
+
+
+
+      <div class="mb-3">
+        <label for="password" class="form-label text-light">Password:</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+
+
+      <div class="mb-3">
+        <label class="form-label text-light">Confirm Password:</label>
+        <input type="password" class="form-control" id="cpassword" name="cpassword">
+      </div>
+
+
+      <div class="mb-3">
+        <label class="form-label text-light">Email:</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label text-light">First Name:</label>
+        <input type="text" class="form-control" id="firstname" name="firstname">
+      </div>
+
+
+      <div class="mb-3">
+        <label for="lastname" class="form-label text-light">Last Name:</label>
+        <input type="text" class="form-control" id="lastname" name="lastname">
+        <center>
+        <button type="submit" class="btn btn-warning mt-3">Submit</button>
+            </center>
+      </div>
+  </form>
+
+</div>
+
+{% endblock %}
